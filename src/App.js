@@ -28,9 +28,9 @@ class App extends Component {
   };
 
   _renderMovies = () => {
-    console.log( this.state.movies  )
+    // console.log( this.state.movies  )
     const movies = this.state.movies.map(movie => {
-      console.log(movie);
+      // console.log(movie);
       return <Movie
         title={movie.title_english}
         poster={movie.medium_cover_image}
@@ -45,7 +45,7 @@ class App extends Component {
 
   _getMovies = async () => {
     const movies = await this._callApi();
-    console.log(movies)
+    // console.log(movies)
     this.setState({
       movies // == movies: movies
     })
@@ -60,7 +60,7 @@ class App extends Component {
 
   render() {
     // console.log('2');
-    console.log(this.state.movies)
+    // console.log(this.state.movies)
     const { movies } = this.state;
     return (
       <div className={movies ? "App" : "App--loading"}>
