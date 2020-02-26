@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   _callApi = () => {
-    return fetch('https://yts.mx/api/v2/list_movies.json?quality=3D?sort_by=rating') //ajax==fetch (latest js), log result: promise
+    return fetch('https://yts.mx/api/v2/list_movies.json?quality=3D?sort_by=download_count') //ajax==fetch (latest js), log result: promise
     .then(res => res.json())
     .then(json => json.data.movies)
     .catch(err => console.log(err))
@@ -61,9 +61,10 @@ class App extends Component {
   render() {
     // console.log('2');
     console.log(this.state.movies)
+    const { movies } = this.state;
     return (
-      <div className="App">
-        { this.state.movies ? this._renderMovies() : 'Loading' }
+      <div className={movies ? "App" : "App--loading"}>
+        { movies ? this._renderMovies() : 'Loading' }
       </div>
     );
   } 
